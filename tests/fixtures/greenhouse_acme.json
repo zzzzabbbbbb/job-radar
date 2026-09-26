@@ -1,0 +1,57 @@
+{
+  "jobs": [
+    {
+      "id": 1001,
+      "title": "IT Support Engineer",
+      "updated_at": "2026-09-20T10:00:00-04:00",
+      "first_published": "2026-09-20T10:00:00-04:00",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1001",
+      "location": {"name": "Mexico City, Mexico"},
+      "offices": [{"id": 1, "name": "Mexico City", "location": "Mexico City"}],
+      "departments": [{"id": 9, "name": "IT"}],
+      "content": "&lt;p&gt;We need someone with &lt;strong&gt;2+ years of experience&lt;/strong&gt; supporting Okta and macOS.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Kandji&lt;/li&gt;&lt;li&gt;Google Workspace&lt;/li&gt;&lt;/ul&gt;"
+    },
+    {
+      "id": 1002,
+      "title": "Senior Site Reliability Engineer",
+      "updated_at": "2026-09-20T10:00:00Z",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1002",
+      "location": {"name": "Remote - Mexico"},
+      "offices": [],
+      "content": "&lt;p&gt;Kubernetes, Terraform.&lt;/p&gt;"
+    },
+    {
+      "id": 1003,
+      "title": "Account Executive, Enterprise",
+      "updated_at": "2026-09-20T10:00:00Z",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1003",
+      "location": {"name": "Mexico City"},
+      "content": ""
+    },
+    {
+      "id": 1004,
+      "title": "Technical Support Engineer",
+      "updated_at": "2026-09-21T10:00:00Z",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1004",
+      "location": {"name": "Remote - US"},
+      "content": "&lt;p&gt;3+ years of experience.&lt;/p&gt;"
+    },
+    {
+      "id": 1005,
+      "title": "Application Support Analyst",
+      "updated_at": "2026-09-22T10:00:00Z",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1005",
+      "location": {"name": "Remote - LATAM"},
+      "content": "&lt;p&gt;Requires 8+ years of professional experience in application support.&lt;/p&gt;"
+    },
+    {
+      "id": 1006,
+      "title": "Automation Engineer",
+      "updated_at": "2026-09-22T10:00:00Z",
+      "absolute_url": "https://job-boards.greenhouse.io/acme/jobs/1006",
+      "location": {"name": "Remote"},
+      "content": "&lt;p&gt;Strong proficiency in Java and Spring.&lt;/p&gt;"
+    }
+  ],
+  "meta": {"total": 6}
+}

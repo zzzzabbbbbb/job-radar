@@ -1,0 +1,35 @@
+name: calibrate scorer
+
+# Corre el set de calibración (calibration/cases.yaml) contra el modelo elegido.
+# Úsalo antes de dar el sistema por terminado y cada vez que cambies el perfil o el prompt.
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modelo a calibrar"
+        type: choice
+        options: [claude-opus-5, claude-sonnet-5, claude-haiku-4-5]
+        default: claude-opus-5
+      effort:
+        description: "Effort (Haiku 4.5 no lo soporta: se ignora)"
+        type: choice
+        options: [low, medium, high]
+        default: low
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Calibrar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODEL: ${{ inputs.model }}
+          EFFORT: ${{ inputs.effort }}
+        run: python -m radar calibrate --model "$MODEL" --effort "$EFFORT" | tee -a "$GITHUB_STEP_SUMMARY"

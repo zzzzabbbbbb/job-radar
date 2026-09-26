@@ -1,0 +1,45 @@
+# Una línea de configuración por empresa.
+#   ats:   greenhouse | lever
+#   token: el slug del board (job-boards.greenhouse.io/<token>, jobs.lever.co/<token>)
+#   tier:  1 = me encantaría, 2 = interesante, 3 = de relleno (hoy solo es informativo)
+#
+# ¿No sabes el token? Corre el workflow "probe" con el nombre de la empresa,
+# o `python -m radar probe "Nombre"`: prueba variantes en cada ATS y te dice cuál responde.
+#
+# verified: true = el board apareció en una búsqueda con vacantes en México/LatAm
+# (sep 2026). false = token probable que no pude comprobar; si está mal, el digest
+# lo va a reportar como fuente fallida al día siguiente.
+
+# --- Greenhouse -------------------------------------------------------------
+- {name: Samsara,        ats: greenhouse, token: samsara,        tier: 1, verified: true}   # TSE remoto México
+- {name: Tenable,        ats: greenhouse, token: tenableinc,     tier: 1, verified: true}   # TSE bilingüe remoto México
+- {name: Varicent,       ats: greenhouse, token: varicent,       tier: 2, verified: true}   # soporte remoto solo México
+- {name: EarnIn,         ats: greenhouse, token: earnin,         tier: 1, verified: true}   # IT Support en oficina CDMX
+- {name: Fictiv,         ats: greenhouse, token: fictiv,         tier: 2, verified: true}   # IT Ops México
+- {name: OpenTable,      ats: greenhouse, token: opentable,      tier: 2, verified: true}   # oficina CDMX
+- {name: Karat,          ats: greenhouse, token: karat,          tier: 3, verified: true}   # contrata en México
+- {name: Twilio,         ats: greenhouse, token: twilio,         tier: 1, verified: true}
+- {name: Okta,           ats: greenhouse, token: okta,           tier: 1, verified: true}
+- {name: GitLab,         ats: greenhouse, token: gitlab,         tier: 1, verified: true}
+- {name: LaunchDarkly,   ats: greenhouse, token: launchdarkly,   tier: 2, verified: true}
+- {name: Coursera,       ats: greenhouse, token: coursera,       tier: 2, verified: true}
+- {name: Anthropic,      ats: greenhouse, token: anthropic,      tier: 2, verified: true}
+- {name: DYOPATH,        ats: greenhouse, token: dyopath,        tier: 3, verified: true}   # service desk México
+- {name: Datadog,        ats: greenhouse, token: datadog,        tier: 1, verified: false}
+- {name: Grafana Labs,   ats: greenhouse, token: grafanalabs,    tier: 1, verified: false}
+- {name: PagerDuty,      ats: greenhouse, token: pagerduty,      tier: 1, verified: false}
+- {name: Cloudflare,     ats: greenhouse, token: cloudflare,     tier: 2, verified: false}
+- {name: MongoDB,        ats: greenhouse, token: mongodb,        tier: 2, verified: false}
+- {name: Elastic,        ats: greenhouse, token: elastic,        tier: 2, verified: false}
+
+# --- Lever ------------------------------------------------------------------
+- {name: JumpCloud,      ats: lever,      token: jumpcloud,      tier: 1, verified: true}   # Customer Support Eng. CDMX
+- {name: PayJoy,         ats: lever,      token: payjoy,         tier: 2, verified: true}   # Technical Support CDMX
+- {name: Deliverect,     ats: lever,      token: deliverect,     tier: 2, verified: true}   # soporte CDMX
+- {name: Restaurant365,  ats: lever,      token: restaurant365,  tier: 3, verified: true}   # soporte CDMX
+- {name: Coupa,          ats: lever,      token: coupa,          tier: 2, verified: true}   # oficina CDMX
+- {name: Despegar,       ats: lever,      token: despegar,       tier: 3, verified: true}
+- {name: Binance,        ats: lever,      token: binance,        tier: 3, verified: true}   # TSE LATAM
+- {name: Luxury Presence, ats: lever,     token: luxurypresence, tier: 3, verified: true}   # remoto LATAM
+- {name: Atmosera,       ats: lever,      token: atmosera,       tier: 3, verified: true}   # remoto LATAM
+- {name: Wing Assistant, ats: lever,      token: getwingapp,     tier: 3, verified: true}   # remoto México

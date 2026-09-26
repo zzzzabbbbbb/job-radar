@@ -1,0 +1,32 @@
+[
+  {
+    "id": "0b6f7a2e-1111-4c3b-9a55-2d7c8d2f0001",
+    "text": "Customer Support Engineer (Remote - Mexico)",
+    "hostedUrl": "https://jobs.lever.co/globex/0b6f7a2e-1111-4c3b-9a55-2d7c8d2f0001",
+    "applyUrl": "https://jobs.lever.co/globex/0b6f7a2e-1111-4c3b-9a55-2d7c8d2f0001/apply",
+    "createdAt": 1790000000000,
+    "workplaceType": "remote",
+    "categories": {
+      "commitment": "Full-time",
+      "department": "Support",
+      "location": "Mexico",
+      "team": "Customer Support",
+      "allLocations": ["Mexico", "Colombia"]
+    },
+    "descriptionPlain": "Help enterprise customers under SLA. Zendesk, APIs, webhooks.",
+    "lists": [
+      {"text": "Requirements", "content": "<li>3+ years of experience in technical support</li><li>Comfortable with REST APIs</li>"}
+    ],
+    "additionalPlain": "Remote within Mexico."
+  },
+  {
+    "id": "0b6f7a2e-2222-4c3b-9a55-2d7c8d2f0002",
+    "text": "IT Specialist",
+    "hostedUrl": "https://jobs.lever.co/globex/0b6f7a2e-2222-4c3b-9a55-2d7c8d2f0002",
+    "createdAt": 1790000000000,
+    "workplaceType": "onsite",
+    "categories": {"location": "Monterrey, Mexico", "team": "IT"},
+    "descriptionPlain": "On-site IT support in our Monterrey office.",
+    "lists": []
+  }
+]

@@ -1,0 +1,176 @@
+# Umbrales y reglas. Todo lo que se calibra vive aquí, no en el código.
+
+scorer:
+  # Modelo y esfuerzo. Corre `python -m radar calibrate --model <id>` antes de cambiarlo.
+  model: claude-opus-5
+  effort: low
+  min_score_for_digest: 65
+  max_scored_per_run: 30        # lo que no alcance se queda pendiente para mañana
+  monthly_budget_usd: 4.50      # al llegar aquí deja de puntuar y el digest lo avisa
+  max_description_chars: 15000
+
+digest:
+  max_items: 15                 # más de esto = umbrales mal calibrados, el digest lo avisa
+  warn_above: 15
+
+prefilter:
+  profile_years: 3.5
+  years_tolerance: 2            # descarta si piden más de profile_years + tolerance
+  max_age_days: 30              # vacantes más viejas al verlas por primera vez se descartan
+  discard_senior: true          # "Senior"/"Sr." fuera de rango con 3.5 años
+
+  # El título debe contener al menos uno (disciplina correcta).
+  title_include:
+    - support
+    - soporte
+    - helpdesk
+    - help desk
+    - service desk
+    - it engineer
+    - it specialist
+    - it analyst
+    - it operations
+    - it systems
+    - it administrator
+    - it technician
+    - systems engineer
+    - systems administrator
+    - sysadmin
+    - workplace
+    - end user
+    - endpoint
+    - site reliability
+    - sre
+    - reliability
+    - observability
+    - monitoring
+    - incident
+    - automation
+    - integration
+    - identity
+    - iam
+    - okta
+    - noc
+    - production operations
+    - technical operations
+    - tech ops
+    - application engineer
+    - applications engineer
+    - solutions engineer
+    - implementation
+
+  # Aunque haya match arriba, estos títulos son otra disciplina.
+  title_exclude:
+    - sales
+    - account executive
+    - account manager
+    - business development
+    - marketing
+    - recruit
+    - talent
+    - designer
+    - legal
+    - counsel
+    - accountant
+    - accounting
+    - payroll
+    - finance
+    - data scientist
+    - machine learning
+    - frontend
+    - front-end
+    - backend
+    - back-end
+    - full stack
+    - fullstack
+    - ios
+    - android
+    - hardware
+    - mechanical
+    - electrical
+    - field technician
+    - warehouse
+    - driver
+    - nurse
+    - clinical
+    - qa automation
+    - test automation
+    - marketing automation
+    - salesforce
+
+  # Seniority fuera de rango en el título.
+  seniority_exclude:
+    - staff
+    - principal
+    - lead
+    - head of
+    - director
+    - vp
+    - vice president
+    - manager
+    - supervisor
+    - architect
+    - distinguished
+    - intern
+    - internship
+    - becario
+    - trainee
+  # Títulos que contienen una palabra de arriba pero sí son del perfil.
+  seniority_exempt:
+    - incident manager
+    - major incident
+    - incident commander
+  senior_words: [senior, sr, "sr."]
+
+  # Lenguajes que el perfil no tiene: se descarta si se piden a nivel experto/fuerte.
+  hard_languages: [Ruby, Go, Golang, C, C++, Java, Scala]
+
+  # Frases que son blocker duro sin ambigüedad.
+  blocker_phrases:
+    - security clearance
+    - secret clearance
+    - ts/sci
+    - active clearance
+    - clearance is required
+    - must be a u.s. citizen
+    - must be a us citizen
+    - must be willing to relocate
+    - relocation is required
+    - relocation required
+
+  # Ubicación.
+  cdmx_words: [mexico city, ciudad de mexico, cdmx, "mexico, df", "mexico df", distrito federal]
+  mexico_words: [mexico, mx, latam, latin america, latinoamerica, americas, anywhere, worldwide, global]
+  other_mx_cities: [monterrey, guadalajara, zapopan, queretaro, tijuana, puebla, leon, merida, cancun, chihuahua, hermosillo, aguascalientes, san luis potosi, saltillo, juarez, toluca]
+  remote_words: [remote, remoto, anywhere, distributed, work from home, wfh]
+  # Si es remoto pero SOLO menciona alguno de estos, es remoto de otro país.
+  foreign_remote_words:
+    - united states
+    - usa
+    - "us"
+    - "u.s."
+    - canada
+    - united kingdom
+    - "uk"
+    - emea
+    - europe
+    - apac
+    - india
+    - brazil
+    - brasil
+    - argentina
+    - colombia
+    - chile
+    - peru
+    - germany
+    - spain
+    - france
+    - ireland
+    - netherlands
+    - poland
+    - portugal
+    - israel
+    - australia
+    - japan
+    - singapore
+    - philippines

@@ -1,0 +1,73 @@
+name: daily radar
+
+on:
+  schedule:
+    # 13:07 UTC = 7:07 en Ciudad de México (UTC-6 todo el año). Minuto no redondo para
+    # evitar la cola de :00 en los runners de GitHub.
+    - cron: "7 13 * * *"
+  workflow_dispatch:
+    inputs:
+      no_llm:
+        description: "Solo fetch + prefiltro (sin gastar en el LLM)"
+        type: boolean
+        default: false
+      no_email:
+        description: "No mandar correo"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: radar-state
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Radar
+        id: radar
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          NO_LLM: ${{ inputs.no_llm && '--no-llm' || '' }}
+          NO_EMAIL: ${{ inputs.no_email && '--no-email' || '' }}
+        run: python -m radar run $NO_LLM $NO_EMAIL
+
+      # Se guarda el estado aunque la corrida haya fallado a la mitad:
+      # lo ya puntuado costó dinero y no debe repetirse.
+      - name: Commit del estado
+        if: always()
+        run: |
+          git config user.name "job-radar"
+          git config user.email "job-radar@users.noreply.github.com"
+          for p in data/radar.sql digests; do [ -e "$p" ] && git add "$p"; done
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "radar: corrida $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      # Si la corrida falló (p. ej. no se pudo mandar el correo), el workflow queda en rojo
+      # y GitHub te manda su correo de falla: nada falla en silencio.
+      - name: Propagar falla
+        if: steps.radar.outcome == 'failure'
+        run: exit 1

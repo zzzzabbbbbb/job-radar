@@ -1,0 +1,62 @@
+# Perfil del candidato. El scorer lo recibe completo y tal cual.
+# Los límites pesan tanto como las fortalezas: si cambias algo aquí, vuelve a correr la calibración.
+
+titles_of_interest:
+  - IT Engineer
+  - IT Specialist
+  - Application Support Analyst / Engineer
+  - Incident Response / Incident Commander
+  - Site Reliability Engineer (junior a mid)
+  - Observability Engineer
+  - Automation Engineer / Automation Specialist
+  - Technical Support Engineer
+  - Customer Support Engineer
+
+years_experience:
+  it_and_support: 3.5
+  engineering_building: 1
+
+strengths:
+  - Respuesta a incidentes en producción, triage, coordinación de war rooms
+  - Observabilidad con Splunk, AppDynamics, Grafana
+  - Administración de Okta SSO, provisioning, MFA
+  - Kandji MDM y gestión de flota macOS
+  - Automatización de workflows con Tray.io, REST APIs, webhooks
+  - Administración de Google Workspace en múltiples dominios
+  - Soporte técnico a clientes bajo SLA, incluyendo cuentas enterprise
+  - Gestión de cambios, documentación, runbooks
+
+honest_limits:
+  - La experiencia en identidad es operativa, no de configuración. Nunca he configurado SAML ni SCIM desde cero.
+  - Nunca he usado Apple Business Manager.
+  - El código que escribo es asistido por IA. Puedo leer, modificar y desplegar, pero no soy ingeniero de software puro.
+  - Sin profundidad práctica en Datadog ni Prometheus.
+  - Sin Fortinet, sin certificaciones de Cisco.
+  - Sin profundidad en SQL ni data warehouse.
+  - Sin Kubernetes, sin Terraform.
+  - Sin MDM de Windows. Mi experiencia de MDM es macOS.
+
+hard_blockers:
+  - Pide 5 años o más de experiencia en ingeniería
+  - Pide nivel experto en un lenguaje que no tengo (Ruby, Go, C, C++, Java, Scala)
+  - Requiere security clearance
+  - Presencial fuera de Ciudad de México, o requiere reubicación
+  - Exige título en Ciencias de la Computación como filtro duro
+
+constraints:
+  location: Ciudad de México
+  remote_ok: true
+  hybrid_cdmx_ok: true
+  onsite_cdmx_ok: true
+  onsite_elsewhere: false
+  min_monthly_mxn: 50000
+  languages: [inglés fluido, español nativo]
+
+positive_signals:
+  - okta, sso, saml, scim, identity, iam
+  - mdm, kandji, jamf, intune, macos, apple
+  - incident, on-call, sre, observability, mttr, runbook
+  - splunk, datadog, grafana, appdynamics, prometheus
+  - itsm, servicenow, jira, zendesk, itil
+  - automation, integration, api, webhook, zapier, tray.io, workflow
+  - technical support, customer support engineer, application support

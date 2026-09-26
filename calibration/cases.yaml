@@ -1,0 +1,43 @@
+# Set de calibración: 3 que claramente encajan y 3 que claramente no.
+# Mínimo antes de dar el sistema por terminado: `python -m radar calibrate` con 6/6.
+#
+# Estas son vacantes reales encontradas en sep 2026. Las vacantes se cierran:
+# si una URL da 404, reemplázala por otra, idealmente una que TÚ hayas evaluado.
+# También se acepta un caso manual pegando el texto:
+#   - name: ...
+#     expect: fit | no_fit
+#     company: ...
+#     title: ...
+#     location: ...
+#     description: |
+#       ...
+
+- name: Samsara · Technical Support Engineer I (remoto México)
+  expect: fit
+  company: Samsara
+  url: https://job-boards.greenhouse.io/samsara/jobs/8112694
+
+- name: Tenable · Technical Support Engineer bilingüe (remoto México)
+  expect: fit
+  company: Tenable
+  url: https://job-boards.greenhouse.io/tenableinc/jobs/5134237008
+
+- name: EarnIn · IT Support Specialist (híbrido CDMX)
+  expect: fit
+  company: EarnIn
+  url: https://job-boards.greenhouse.io/earnin/jobs/7968041
+
+- name: Okta · Staff TDI Site Reliability Engineer, Okta Federal
+  expect: no_fit
+  company: Okta
+  url: https://job-boards.greenhouse.io/okta/jobs/8073062
+
+- name: GitLab · Staff Systems Engineer, IT
+  expect: no_fit
+  company: GitLab
+  url: https://job-boards.greenhouse.io/gitlab/jobs/8705017002
+
+- name: Atmosera · Cloud Infrastructure Engineer (remoto LATAM)
+  expect: no_fit
+  company: Atmosera
+  url: https://jobs.lever.co/atmosera/54129c29-8d4e-4845-aa58-22d365d99c71

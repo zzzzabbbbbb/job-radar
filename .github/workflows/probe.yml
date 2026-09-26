@@ -1,0 +1,33 @@
+name: probe ATS
+
+# Dado uno o varios nombres de empresa, prueba variantes de slug en Greenhouse, Lever,
+# Ashby y SmartRecruiters e imprime la línea lista para pegar en config/companies.yaml.
+on:
+  workflow_dispatch:
+    inputs:
+      names:
+        description: "Empresas separadas por coma (ej: Grafana Labs, Kandji, Bitso)"
+        required: true
+      check_config:
+        description: "Además, verificar todas las empresas de companies.yaml"
+        type: boolean
+        default: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Probe
+        env:
+          NAMES: ${{ inputs.names }}
+        run: python -m radar probe "$NAMES" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Verificar companies.yaml
+        if: inputs.check_config
+        run: python -m radar check-config | tee -a "$GITHUB_STEP_SUMMARY"
